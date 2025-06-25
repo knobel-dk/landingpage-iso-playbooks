@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cut Your Cloud Costs by 90% - AWS Migration Playbook</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s ease-in-out infinite',
+                        'fade-in': 'fadeIn 0.6s ease-out forwards',
+                        'slide-up': 'slideUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .animate-on-scroll.visible {
+            animation: slideUp 0.8s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Hero Section -->
+    <section class="gradient-bg min-h-screen flex items-center relative overflow-hidden">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0">
+            <div class="absolute top-20 left-20 w-72 h-72 bg-white opacity-10 rounded-full animate-float"></div>
+            <div class="absolute bottom-20 right-20 w-96 h-96 bg-white opacity-5 rounded-full animate-float" style="animation-delay: -3s;"></div>
+            <div class="absolute top-1/2 left-1/3 w-48 h-48 bg-white opacity-10 rounded-full animate-pulse-slow"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center text-white">
+                <!-- Badge -->
+                <div class="inline-flex items-center px-4 py-2 rounded-full glass-effect mb-8 animate-fade-in">
+                    <span class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
+                    <span class="text-sm font-medium">🚀 Viral on Hacker News - 250+ upvotes</span>
+                </div>
+                
+                <!-- Main Headline -->
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight animate-slide-up">
+                    Cut Your Cloud Costs by <span class="text-yellow-300">90%</span>
+                </h1>
+                <h2 class="text-2xl md:text-3xl font-light mb-8 opacity-90 animate-slide-up" style="animation-delay: 0.2s;">
+                    Stay ISO-27001 & GDPR-Compliant—With Zero Guesswork
+                </h2>
+                
+                <!-- Sub-headline -->
+                <p class="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed opacity-90 animate-slide-up" style="animation-delay: 0.4s;">
+                    Get the exact <strong>Ansible + Terraform playbook</strong> we used to migrate off AWS, plus consulting and support, to smoothly run your own compliant infrastructure.
+                </p>
+                
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style="animation-delay: 0.6s;">
+                    <a href="https://calendly.com/datapult/30min" class="bg-yellow-400 text-gray-900 px-8 py-4 rounded-lg text-lg font-bold hover:bg-yellow-300 transform hover:scale-105 transition-all duration-300 shadow-xl">
+                        📞 Schedule Discovery Call
+                    </a>
+                    <a href="mailto:jk@datapult.dk?subject=Show%20me%20the%20playbooks&amp;body=Hi%20Jacob%2C%20please%20send%20me%20the%20playbooks%20my%20company%20%5BCOMPANY_NAME%5D%20wants%20to%20use%20it%20for%20%5BPURPOSE%5D.%20It%20would%20be%20worth%20USD%20%5BVALUE%5D%20for%20us."
+                        class="glass-effect px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:bg-opacity-20 transition-all duration-300">
+                        📖 View Full Playbook
+                    </a>
+                </div>
+                
+                <!-- Social Proof -->
+                <div class="mt-16 flex items-center justify-center space-x-8 opacity-80 animate-slide-up" style="animation-delay: 0.8s;">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold">90%</div>
+                        <div class="text-sm">Cost Reduction</div>
+                    </div>
+                    <div class="w-px h-12 bg-white opacity-30"></div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold">ISO-27001</div>
+                        <div class="text-sm">Compliant</div>
+                    </div>
+                    <div class="w-px h-12 bg-white opacity-30"></div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold">🇪🇺</div>
+                        <div class="text-sm">EU Sovereignty</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why It Works Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Why It Works</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Built from real-world experience, battle-tested in production</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Benefit 1 -->
+                <div class="card-hover bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-2xl border border-green-200 animate-on-scroll">
+                    <div class="text-4xl mb-4">💰</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Massive Cost Savings</h3>
+                    <p class="text-gray-700 leading-relaxed">Migrate off AWS to trusted European providers—save ~90% while avoiding US-cloud compliance concerns.</p>
+                </div>
+                
+                <!-- Benefit 2 -->
+                <div class="card-hover bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl border border-blue-200 animate-on-scroll" style="animation-delay: 0.1s;">
+                    <div class="text-4xl mb-4">🔐</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">ISO-Grade Compliance Built-In</h3>
+                    <p class="text-gray-700 leading-relaxed">Hardened servers, secure deployment flows, logging/monitoring separation—ready for ISO-27001, GDPR, and audits.</p>
+                </div>
+                
+                <!-- Benefit 3 -->
+                <div class="card-hover bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-2xl border border-purple-200 animate-on-scroll" style="animation-delay: 0.2s;">
+                    <div class="text-4xl mb-4">⚙️</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Fully Automated Stack</h3>
+                    <p class="text-gray-700 leading-relaxed">Terraform for provisioning; Ansible for setup, deployments, security; monitoring and alerting baked in.</p>
+                </div>
+                
+                <!-- Benefit 4 -->
+                <div class="card-hover bg-gradient-to-br from-orange-50 to-orange-100 p-8 rounded-2xl border border-orange-200 animate-on-scroll" style="animation-delay: 0.3s;">
+                    <div class="text-4xl mb-4">📡</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Full Visibility & Resilience</h3>
+                    <p class="text-gray-700 leading-relaxed">Prometheus, Alertmanager, Loki, Grafana, SSL automation—alerting that meets enterprise standards.</p>
+                </div>
+                
+                <!-- Benefit 5 -->
+                <div class="card-hover bg-gradient-to-br from-indigo-50 to-indigo-100 p-8 rounded-2xl border border-indigo-200 animate-on-scroll" style="animation-delay: 0.4s;">
+                    <div class="text-4xl mb-4">🇪🇺</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Sovereignty & Control</h3>
+                    <p class="text-gray-700 leading-relaxed">Avoid CLOUD Act exposure by hosting in EU-based clouds—ideal for privacy-conscious businesses.</p>
+                </div>
+                
+                <!-- Benefit 6 -->
+                <div class="card-hover bg-gradient-to-br from-red-50 to-red-100 p-8 rounded-2xl border border-red-200 animate-on-scroll md:col-start-2 lg:col-start-auto" style="animation-delay: 0.5s;">
+                    <div class="text-4xl mb-4">🛠️</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Expert Support Included</h3>
+                    <p class="text-gray-700 leading-relaxed">Skip the DIY pitfalls with ongoing consulting, troubleshooting, and optimization support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You Get Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">What You Get</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Complete turnkey solution with everything you need</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="space-y-6">
+                    <!-- Item 1 -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-blue-500 card-hover animate-on-scroll">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">🏗️ Terraform Modules</h3>
+                        <p class="text-gray-700">Provider-agnostic provisioning and auto-scaling infrastructure</p>
+                    </div>
+                    
+                    <!-- Item 2 -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-green-500 card-hover animate-on-scroll">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">🔧 Comprehensive Ansible Roles</h3>
+                        <div class="grid md:grid-cols-2 gap-4 text-gray-700">
+                            <div>• OS hardening (auditd, ufw, SSH, chrony)</div>
+                            <div>• DB provisioning + automated backups</div>
+                            <div>• Deployment with rollback capabilities</div>
+                            <div>• TLS certificate automation</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 3 -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-purple-500 card-hover animate-on-scroll">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">📊 Complete Monitoring Stack</h3>
+                        <p class="text-gray-700">Prometheus + Alertmanager + Blackbox + Grafana + Loki with enterprise-grade alerting</p>
+                    </div>
+                    
+                    <!-- Item 4 -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-yellow-500 card-hover animate-on-scroll">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">👨‍💼 Expert Consulting Hours</h3>
+                        <p class="text-gray-700">Setup assistance, troubleshooting support, cost modeling, and audit preparation</p>
+                    </div>
+                    
+                    <!-- Item 5 -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-red-500 card-hover animate-on-scroll">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">📧 Ongoing Email Support</h3>
+                        <p class="text-gray-700">Quick help for your ops team when you need it most</p>
+                    </div>
+                    
+                    <!-- Item 6 -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-indigo-500 card-hover animate-on-scroll">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">📚 Complete Documentation</h3>
+                        <p class="text-gray-700">Architecture diagrams, code snippets, cost analysis, and compliance documentation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">What People Are Saying</h2>
+                <p class="text-xl text-gray-600">Feedback from the Hacker News community</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-2xl card-hover animate-on-scroll">
+                    <div class="text-4xl mb-4">💬</div>
+                    <blockquote class="text-lg italic text-gray-700 mb-4">
+                        "Moved off AWS, saved 90%, kept ISO-27001 with Ansible..."
+                    </blockquote>
+                    <div class="text-sm text-gray-500">— Hacker News Community</div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-2xl card-hover animate-on-scroll">
+                    <div class="text-4xl mb-4">🔒</div>
+                    <blockquote class="text-lg italic text-gray-700 mb-4">
+                        "Switched more for GDPR/data-sovereignty risk than cost"
+                    </blockquote>
+                    <div class="text-sm text-gray-500">— Hacker News Community</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm card-hover animate-on-scroll">
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">❓ How much effort is required?</h3>
+                    <p class="text-gray-700">Prebuilt IaC automates setup; ongoing maintenance handled by support hours.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-sm card-hover animate-on-scroll">
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">⚠️ What about provider risks?</h3>
+                    <p class="text-gray-700">We help design multi-provider failover, daily backups, and monitoring to mitigate risks from Hetzner/OVH.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-sm card-hover animate-on-scroll">
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">📈 Is this for small apps?</h3>
+                    <p class="text-gray-700">Yes—but the stack scales from startups to enterprises with built-in best practices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ideal For Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Ideal For</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl card-hover animate-on-scroll">
+                    <div class="text-4xl mb-4">👨‍💼</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Tech Leaders & CTOs</h3>
+                    <p class="text-gray-700">Tired of unpredictable AWS bills and seeking cost control</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-2xl card-hover animate-on-scroll">
+                    <div class="text-4xl mb-4">🏢</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Compliance-Focused Companies</h3>
+                    <p class="text-gray-700">Needing ISO-27001, GDPR, or sovereignty compliance</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-2xl card-hover animate-on-scroll">
+                    <div class="text-4xl mb-4">⚙️</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">DevOps-Ready Teams</h3>
+                    <p class="text-gray-700">With capacity willing to manage their own stack</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-red-50 to-red-100 p-8 rounded-2xl card-hover animate-on-scroll">
+                    <div class="text-4xl mb-4">🇪🇺</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">EU-Focused Enterprises</h3>
+                    <p class="text-gray-700">Seeking EU-centric infrastructure and data sovereignty</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-20 gradient-bg relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute top-10 right-10 w-64 h-64 bg-white opacity-10 rounded-full animate-float"></div>
+            <div class="absolute bottom-10 left-10 w-48 h-48 bg-white opacity-5 rounded-full animate-float" style="animation-delay: -2s;"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center text-white">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 animate-on-scroll">
+                    Ready to Take Control of Your Cloud?
+                </h2>
+                <p class="text-xl md:text-2xl mb-12 opacity-90 animate-on-scroll">
+                    Securely, compliantly, and cost-efficiently
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-6 justify-center animate-on-scroll">
+                    <a href="https://calendly.com/datapult/30min" class="bg-yellow-400 text-gray-900 px-10 py-5 rounded-lg text-xl font-bold hover:bg-yellow-300 transform hover:scale-105 transition-all duration-300 shadow-2xl">
+                        📞 Schedule Discovery Call
+                    </a>
+                    <a href="mailto:jk@datapult.dk?subject=Show%20me%20the%20playbooks&amp;body=Hi%20Jacob%2C%20please%20send%20me%20the%20playbooks%20my%20company%20%5BCOMPANY_NAME%5D%20wants%20to%20use%20it%20for%20%5BPURPOSE%5D.%20It%20would%20be%20worth%20USD%20%5BVALUE%5D%20for%20us."
+                        class="glass-effect px-10 py-5 rounded-lg text-xl font-semibold hover:bg-white hover:bg-opacity-20 transition-all duration-300">
+                        📦 Buy Full Playbook + Support
+                    </a>
+                </div>
+                
+                <div class="mt-12 text-lg opacity-80 animate-on-scroll">
+                    <p>🚀 Join 100+ developers who loved our approach</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-lg mb-4">Ready to cut your cloud costs by 90%?</p>
+            <p class="text-gray-400">© 2025 AWS Migration Playbook. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling animation trigger
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+            animateElements.forEach(el => observer.observe(el));
+        });
+
+        // Button interactions
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    // Create ripple effect
+                    const ripple = document.createElement('span');
+                    const rect = button.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    ripple.classList.add('absolute', 'bg-white', 'bg-opacity-30', 'rounded-full', 'animate-ping');
+                    
+                    button.style.position = 'relative';
+                    button.style.overflow = 'hidden';
+                    button.appendChild(ripple);
+                    
+                    setTimeout(() => ripple.remove(), 600);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
